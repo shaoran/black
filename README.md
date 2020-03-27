@@ -674,7 +674,12 @@ $ black --help
 
 Commands and shortcuts:
 
-- `:Black` to format the entire file (ranges not supported);
+* `:Black [target_version=TV],[line_length=int],[string_normalization=int] [fast=int]` to format
+  the entire file (ranges not supported), all arguments are optional and `TV` can be one of:
+    - `"py27"`
+    - `"py36"`
+    - `"py37"`
+    - `"py38"`
 - `:BlackUpgrade` to upgrade _Black_ inside the virtualenv;
 - `:BlackVersion` to get the current version of _Black_ inside the virtualenv.
 
@@ -684,11 +689,13 @@ Configuration:
 - `g:black_linelength` (defaults to `88`)
 - `g:black_skip_string_normalization` (defaults to `0`)
 - `g:black_virtualenv` (defaults to `~/.vim/black` or `~/.local/share/nvim/black`)
+* `g:black_target_version` (defaults to empty string, same result as executing _Black_
+  without the `-t` parameter)
 
 To install with [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```
-Plug 'psf/black'
+Plug 'shaoran/black', { 'branch': 'allow_override_args_19.10b0' }
 ```
 
 or with [Vundle](https://github.com/VundleVim/Vundle.vim):
